@@ -53,9 +53,9 @@ def run_inference(model_path, image_path, input_size):
     return conf,loc,landms
 
 def post_processing(model_output,image_path,input_size,i):
-        '''
-        Post processing to convert the raw prediction to the pixel values
-        '''
+    '''
+    Post processing to convert the raw prediction to the pixel values
+    '''
     confidence_threshold = 0.02
     top_k = 500
     keep_top_k = 100
@@ -138,7 +138,7 @@ def post_processing(model_output,image_path,input_size,i):
             cv2.circle(img_raw, (b[13], b[14]), 1, (255, 0, 0), 4)
         # save image
 
-        name = "data/testtflite"+str(i)+".jpg"
+        name = "data/data_faces_pred/testtflite"+str(i)+".jpg"
         cv2.imwrite(name, img_raw)
 
 if __name__ == '__main__':
@@ -146,11 +146,10 @@ if __name__ == '__main__':
     from glob import glob
     # Define the paths
     model_path = 'RetinaFace_mobilenet0.25_640.tflite'
-    image_path = 'data/data_faces/1000_F_247394063_HqXA5OuzZ0Mx3GezWm72VMQc5lqaPs2W.jpg'
 
     # Define the input size (height, width)
     input_size = (640, 640)
-    image_paths = glob(os.path.join("data/data_faces_pred","*"))
+    image_paths = glob(os.path.join("data/data_faces","*"))
     for i,image_path in enumerate(image_paths):
         # Run inference
         output1,output2,output3 = run_inference(model_path, image_path, input_size)
