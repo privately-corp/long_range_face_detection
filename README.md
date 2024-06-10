@@ -16,11 +16,12 @@ pip install -r requirements.txt
 ```
 
 ## Tflite inference of Retina face model
-Download the Tflite model from s3 bucket and keep it on the parent directory. [Link tflite models](https://ml-models-production.s3.eu-west-1.amazonaws.com/face_landmarks_models/RetinaFace/tflite_models/RetinaFace_mobilenet0.25_640.tflite) 
+Download the Tflite model from s3 bucket and keep it on the parent directory.
 
-[Link to raw pytorch weights](https://ml-models-production.s3.eu-west-1.amazonaws.com/face_landmarks_models/RetinaFace/rawWeights/)
+Tflite model :```s3://ml-models-production/face_landmarks_models/RetinaFace/tflite_models/RetinaFace_mobilenet0.25_640.tflite```
 
-## TFlite Inference on images
+Raw pytorch weights : ```s3://ml-models-production/face_landmarks_models/RetinaFace/rawWeights/```
+
 ```
 python tflite_inference.py
 ```
